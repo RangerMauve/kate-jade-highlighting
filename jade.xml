@@ -1,3 +1,8 @@
 <language name="Jade" section="Other" version="1.0" kateversion="2.3" extensions="*.jade" author="RangerMauve (RangerMauve@hotmail.com)" license="">
-
+	<list name="Tags">
+		<item>a</item> <item>abbr</item> <item>acronym</item> <item>address</item> <item>applet</item> <item>area</item> <item>b</item> <item>base</item> <item>basefont</item> <item>bdo</item> <item>big</item> <item>blockquote</item> <item>body</item> <item>br</item> <item>button</item> <item>caption</item> <item>center</item> <item>cite</item> <item>code</item> <item>col</item> <item>colgroup</item> <item>dd</item> <item>del</item> <item>dfn</item> <item>dir</item> <item>div</item> <item>dl</item> <item>dt</item> <item>em</item> <item>fieldset</item> <item>font</item> <item>form</item> <item>frame</item> <item>frameset</item> <item>h1</item> <item>h2</item> <item>h3</item> <item>h4</item> <item>h5</item> <item>h6</item> <item>head</item> <item>hr</item> <item>html</item> <item>i</item> <item>iframe</item> <item>img</item> <item>input</item> <item>ins</item> <item>isindex</item> <item>kbd</item> <item>label</item> <item>legend</item> <item>li</item> <item>link</item> <item>map</item> <item>menu</item> <item>meta</item> <item>noframes</item> <item>noscript</item> <item>object</item> <item>ol</item> <item>optgroup</item> <item>option</item> <item>p</item> <item>param</item> <item>pre</item> <item>q</item> <item>s</item> <item>samp</item> <item>script</item> <item>select</item> <item>small</item> <item>span</item> <item>strike</item> <item>strong</item> <item>style</item> <item>sub</item> <item>sup</item> <item>table</item> <item>tbody</item> <item>td</item> <item>textarea</item> <item>tfoot</item> <item>th</item> <item>thead</item> <item>title</item> <item>tr</item> <item>tt</item> <item>u</item> <item>ul</item> <item>var</item>
+	</list>
+	<list name="Keywords">
+		
+	</list>
 </language>
