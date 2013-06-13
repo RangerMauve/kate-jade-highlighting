@@ -1,24 +1,166 @@
-<language name="Jade" section="Other" version="1.0" kateversion="2.3" extensions="*.jade" author="RangerMauve (RangerMauve@hotmail.com)" license="">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE language SYSTEM "language.dtd">
+
+<!--
+
+Kate Jade syntax highlighting definition
+
+Changelog:
+
+- Version 1 by RangerMauve (RangerMauve@hotmail.com)
+
+-->
+
+<language name="Jade" section="Scripts" version="1.9" kateversion="2.4" extensions="*.jade" author="julien brunet (jules at scarabecus.fr)" license="MIT">
 	<highlighting>
-		<list name="Tags">
-			<item>a</item> <item>abbr</item> <item>acronym</item> <item>address</item> <item>applet</item> <item>area</item> <item>b</item> <item>base</item> <item>basefont</item> <item>bdo</item> <item>big</item> <item>blockquote</item> <item>body</item> <item>br</item> <item>button</item> <item>caption</item> <item>center</item> <item>cite</item> <item>code</item> <item>col</item> <item>colgroup</item> <item>dd</item> <item>del</item> <item>dfn</item> <item>dir</item> <item>div</item> <item>dl</item> <item>dt</item> <item>em</item> <item>fieldset</item> <item>font</item> <item>form</item> <item>frame</item> <item>frameset</item> <item>h1</item> <item>h2</item> <item>h3</item> <item>h4</item> <item>h5</item> <item>h6</item> <item>head</item> <item>hr</item> <item>html</item> <item>i</item> <item>iframe</item> <item>img</item> <item>input</item> <item>ins</item> <item>isindex</item> <item>kbd</item> <item>label</item> <item>legend</item> <item>li</item> <item>link</item> <item>map</item> <item>menu</item> <item>meta</item> <item>noframes</item> <item>noscript</item> <item>object</item> <item>ol</item> <item>optgroup</item> <item>option</item> <item>p</item> <item>param</item> <item>pre</item> <item>q</item> <item>s</item> <item>samp</item> <item>script</item> <item>select</item> <item>small</item> <item>span</item> <item>strike</item> <item>strong</item> <item>style</item> <item>sub</item> <item>sup</item> <item>table</item> <item>tbody</item> <item>td</item> <item>textarea</item> <item>tfoot</item> <item>th</item> <item>thead</item> <item>title</item> <item>tr</item> <item>tt</item> <item>u</item> <item>ul</item> <item>var</item>
+		<list name="tags">
+			<item>a</item>
+			<item>applet</item>
+			<item>area</item>
+			<item>b</item>
+			<item>blockquote</item>
+			<item>body</item>
+			<item>br</item>
+			<item>button</item>
+			<item>caption</item>
+			<item>center</item>
+			<item>cite</item>
+			<item>code</item>
+			<item>col</item>
+			<item>colgroup</item>
+			<item>dd</item>
+			<item>del</item>
+			<item>dfn</item>
+			<item>dir</item>
+			<item>div</item>
+			<item>dl</item>
+			<item>dt</item>
+			<item>em</item>
+			<item>fieldset</item>
+			<item>font</item>
+			<item>form</item>
+			<item>frame</item>
+			<item>frameset</item>
+			<item>h1</item>
+			<item>h2</item>
+			<item>h3</item>
+			<item>h4</item>
+			<item>h5</item>
+			<item>h6</item>
+			<item>head</item>
+			<item>hr</item>
+			<item>html</item>
+			<item>i</item>
+			<item>iframe</item>
+			<item>img</item>
+			<item>input</item>
+			<item>ins</item>
+			<item>isindex</item>
+			<item>kbd</item>
+			<item>label</item>
+			<item>legend</item>
+			<item>li</item>
+			<item>link</item>
+			<item>map</item>
+			<item>menu</item>
+			<item>meta</item>
+			<item>noframes</item>
+			<item>noscript</item>
+			<item>object</item>
+			<item>ol</item>
+			<item>optgroup</item>
+			<item>option</item>
+			<item>p</item>
+			<item>param</item>
+			<item>pre</item>
+			<item>q</item>
+			<item>s</item>
+			<item>samp</item>
+			<item>script</item>
+			<item>select</item>
+			<item>small</item>
+			<item>span</item>
+			<item>strike</item>
+			<item>style</item>
+			<item>sub</item>
+			<item>sup</item>
+			<item>table</item>
+			<item>tbody</item>
+			<item>td</item>
+			<item>textarea</item>
+			<item>tfoot</item>
+			<item>th</item>
+			<item>thead</item>
+			<item>title</item>
+			<item>tr</item>
+			<item>tt</item>
+			<item>u</item>
+			<item>ul</item>
+			<item>doctype</item>
 		</list>
-		<list name="Keywords">
-			<item>each</item> <item>for</item> <item>if</item> <item>else</item> <item>unless</item> <item>extends</item> <item>block</item> <item>appends</item> <item>prepend</item> <item>include</item> <item>yeild</item> <item>mixin</item>
+		<list name="keywords">
+			<item>each</item>
+			<item>for</item>
+			<item>if</item>
+			<item>else</item>
+			<item>unless</item>
+			<item>extends</item>
+			<item>block</item>
+			<item>appends</item>
+			<item>prepend</item>
+			<item>include</item>
+			<item>yeild</item>
+			<item>mixin</item>
+		</list>
+		<list name="params">
+			<item>lang</item>
+			<item>href</item>
+			<item>type</item>
+			<item>id</item>
+			<item>class</item>
+			<item>src</item>
+			<item>rel</item>
+			<item>action</item>
+			<item>method</item>
+			<item>value</item>
+			<item>name</item>
 		</list>
 		
 		<contexts>
-			<context name="Normal" lineEndContext="#stay" attribute="Text">
-				<keyword String="Tags" context="#stay" attribute="Tag" casesensitive="false"/>
-				<keyword String="Keywords" context="#stay" attribute="Keyword" />
+			<context attribute="Normal" lineEndContext="#stay" name="Normal">
+				<Float attribute="Float" context="#stay"/>
+				<Int attribute="Decimal" context="#stay"/>
+				<HlCOct attribute="Oct" context="#stay"/>
+				<HlCHex attribute="Hex" context="#stay"/>
+				<keyword attribute="Tags" context="#stay" firstNonSpace="true" casesensitive="false" String="tags"/>
+				<keyword attribute="Keyword" context="#stay" firstNonSpace="true" String="keywords"/>
+				<keyword attribute="Params" context="#stay" casesensitive="true" String="params"/>
+				<RangeDetect attribute="String" char="'" char1="'" context="#pop"/>
+				<RangeDetect attribute="String" char="&quot;" char1="&quot;" context="#pop"/>
+				<RangeDetect attribute="Var" char="#" char1="}" context="#stay"/>
+				<RegExpr attribute="Id" String="#\w*" context="#stay"/>
+				<RegExpr attribute="Class" String="\.\w[^\s]*" context="#stay"/>
 			</context>
 		</contexts>
 		
 		<itemDatas>
+			<itemData name="Normal" defStyleNum="dsNormal" spellChecking="false"/>
 			<itemData name="Keyword" defStyleNum="dsKeyword" spellChecking="false"/>
 			<itemData name="Tags" defStyleNum="dsOther" spellChecking="false"/>
+			<itemData name="Params" defStyleNum="dsOther" spellChecking="false"/>
+			<itemData name="String" defStyleNum="dsNormal" spellChecking="false"/>
+			<itemData name="Decimal" defStyleNum="dsDecVal" spellChecking="false"/>
+      <itemData name="Float" defStyleNum="dsFloat" spellChecking="false"/>
+      <itemData name="Oct" defStyleNum="dsBaseN" spellChecking="false"/>
+      <itemData name="Hex" defStyleNum="dsBaseN" spellChecking="false"/>
+			<itemData name="Id" defStyleNum="dsKeyword" spellChecking="false"/>
+			<itemData name="Class" defStyleNum="dsKeyword" spellChecking="false"/>
+			<itemData name="Var" defStyleNum="dsString" spellChecking="false"/>
 		</itemDatas>
+		
 		<general>
+			<indentation mode="python"/>
+			<folding indentationsensitive="1"/>
 			<comments>
 				<comment name="singleLine" start="//" />
 			</comments>
