@@ -140,7 +140,9 @@ Changelog:
 				<RangeDetect attribute="Var" char="#" char1="}" context="#stay"/>
 				<RegExpr attribute="Id" String="#\w*" context="#stay"/>
 				<RegExpr attribute="Class" String="\.\w[^\s]*" context="#stay"/>
+				<StringDetect String="//" firstNonSpace="true" context="comment"/>
 			</context>
+			<context name="comment" attribute="Comment" lineEndContext="#pop"></context>
 		</contexts>
 		
 		<itemDatas>
@@ -156,6 +158,7 @@ Changelog:
 			<itemData name="Id" defStyleNum="dsKeyword" spellChecking="false"/>
 			<itemData name="Class" defStyleNum="dsKeyword" spellChecking="false"/>
 			<itemData name="Var" defStyleNum="dsString" spellChecking="false"/>
+			<itemData name="Comment" defStyleNum="dsComment" spellChecking="true"/>
 		</itemDatas>
 		
 		<general>
