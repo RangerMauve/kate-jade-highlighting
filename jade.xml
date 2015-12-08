@@ -144,6 +144,7 @@ Changelog:
 				<RegExpr attribute="Id" String="#\w*" context="#stay"/>
 				<RegExpr attribute="Class" String="\.\w[^\s]*" context="#stay"/>
 				-->
+				<RegExpr String="^(\s+)(?=\S)" context="#stay" column="0"/><!-- Skip whitespace at start of line, so it doesn't get confused with whitespace used to separate selector from HTML -->
 				<keyword attribute="Tags" context="#stay" firstNonSpace="true" casesensitive="false" String="tags"/>
 				<keyword attribute="Keyword" context="#stay" firstNonSpace="true" String="keywords"/>
 				<StringDetect String="//" firstNonSpace="true" context="comment"/>
@@ -201,10 +202,10 @@ Changelog:
 			</context>
 			
 			<context name="selector" lineEndContext="#pop">
-				<RegExpr String="[^ \.#=!]" context="#stay"/>
+				<RegExpr String="[^\s\.#=!]" context="#stay"/>
 				<DetectChar attribute="Class" char="." context="#pop!class"/>
 				<DetectChar attribute="Id" char="#" context="#pop!id"/>
-				<DetectChar attribute="Normal" char=" " context="#pop"/>
+				<RegExpr String="\s" context="html-line-from-selector"/>
 				<StringDetect String="= "  context="javascript-line-from-selector"/>
 				<StringDetect String="!= " context="javascript-line-from-selector"/>
 			</context>
@@ -219,6 +220,9 @@ Changelog:
 			</context>
 			<context name="javascript-line" attribute="Normal" lineEndContext="#pop">
 				<IncludeRules context="##JavaScript"/>
+			</context>
+			<context name="html-line-from-selector" attribute="Normal" lineEndContext="#pop#pop">
+				<IncludeRules context="##HTML"/>
 			</context>
 			<context name="html-line" attribute="Normal" lineEndContext="#pop">
 				<IncludeRules context="##HTML"/>
