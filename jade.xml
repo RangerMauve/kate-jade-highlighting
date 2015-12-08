@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE language SYSTEM "language.dtd">
+<!DOCTYPE language SYSTEM "language.dtd"
+[
+<!ENTITY name    "[A-Za-z_:][\w.:_-]*">
+<!ENTITY entref  "&amp;(#[0-9]+|#[xX][0-9A-Fa-f]+|&name;);">
+]>
 
 <!--
 
@@ -143,12 +147,38 @@ Changelog:
 				<keyword attribute="Tags" context="#stay" firstNonSpace="true" casesensitive="false" String="tags"/>
 				<keyword attribute="Keyword" context="#stay" firstNonSpace="true" String="keywords"/>
 				<StringDetect String="//" firstNonSpace="true" context="comment"/>
+				<DetectChar char="(" attribute="Normal" context="Attributes"/>
 				<LineContinue context="plaintext-block" char="."/>
 				<IncludeRules context="selector"/>
 			</context>
 			
 			<context name="comment" attribute="Comment" lineEndContext="#pop">
 				<IncludeRules context="##Alerts"/>
+			</context>
+			
+			<context name="Attributes" attribute="Normal" lineEndContext="#stay">
+				<RegExpr attribute="Attribute" context="#stay" String="&name;" />
+				<DetectChar attribute="Attribute" context="Value" char="=" />
+				<DetectChar context="#stay" char="," />
+				<DetectSpaces />
+				<DetectChar attribute="Normal" context="#pop" char=")" />
+			</context>
+			<context name="Value" attribute="Normal" lineEndContext="#stay" fallthrough="true" fallthroughContext="#pop">
+				<DetectChar attribute="Value" context="Value DQ" char="&quot;" />
+				<DetectChar attribute="Value" context="Value SQ" char="&apos;" />
+				<DetectSpaces />
+			</context>
+			<context name="Value DQ" attribute="Value" lineEndContext="#stay">
+				<DetectChar attribute="Value" context="#pop#pop" char="&quot;" />
+				<IncludeRules context="FindEntityRefs" />
+			</context>
+			<context name="Value SQ" attribute="Value" lineEndContext="#stay">
+				<DetectChar attribute="Value" context="#pop#pop" char="&apos;" />
+				<IncludeRules context="FindEntityRefs" />
+			</context>
+			<context name="FindEntityRefs" attribute="Normal" lineEndContext="#stay">
+				<RegExpr attribute="EntityRef" context="#stay" String="&entref;" />
+				<AnyChar attribute="Error" context="#stay" String="&amp;&lt;" />
 			</context>
 			
 			<context name="plaintext-block" attribute="Normal">
@@ -177,6 +207,10 @@ Changelog:
 			<itemData name="Normal" defStyleNum="dsNormal" spellChecking="false"/>
 			<itemData name="Keyword" defStyleNum="dsKeyword" italic="true" spellChecking="false"/>
 			<itemData name="Tags" defStyleNum="dsKeyword" spellChecking="false"/>
+			<itemData name="Attribute" defStyleNum="dsOthers" spellChecking="false" />
+			<itemData name="Value" defStyleNum="dsString" color="#a00" spellChecking="false" />
+			<itemData name="EntityRef" defStyleNum="dsDecVal" spellChecking="false" />
+			<itemData name="Error" defStyleNum="dsError" spellChecking="false" />
 			<itemData name="Params" defStyleNum="dsOther" spellChecking="false"/>
 			<itemData name="String" defStyleNum="dsNormal" spellChecking="false"/>
 			<itemData name="Decimal" defStyleNum="dsDecVal" spellChecking="false"/>
