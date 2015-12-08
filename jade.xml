@@ -148,6 +148,7 @@ Changelog:
 				<keyword attribute="Keyword" context="#stay" firstNonSpace="true" String="keywords"/>
 				<StringDetect String="//" firstNonSpace="true" context="comment"/>
 				<DetectChar char="(" attribute="Normal" context="Attributes"/>
+				<StringDetect String="- " firstNonSpace="true" context="javascript-line"/>
 				<LineContinue context="plaintext-block" char="."/>
 				<IncludeRules context="selector"/>
 			</context>
@@ -190,16 +191,24 @@ Changelog:
 			</context>
 			
 			<context name="selector" lineEndContext="#pop">
-				<RegExpr String="[^ \.#]" context="#stay"/>
+				<RegExpr String="[^ \.#=!]" context="#stay"/>
 				<DetectChar attribute="Class" char="." context="#pop!class"/>
 				<DetectChar attribute="Id" char="#" context="#pop!id"/>
 				<DetectChar attribute="Normal" char=" " context="#pop"/>
+				<StringDetect String="= "  context="javascript-line-from-selector"/>
+				<StringDetect String="!= " context="javascript-line-from-selector"/>
 			</context>
 			<context name="class" attribute="Class" lineEndContext="#pop">
 				<IncludeRules context="selector"/>
 			</context>
 			<context name="id" attribute="Id" lineEndContext="#pop">
 				<IncludeRules context="selector"/>
+			</context>
+			<context name="javascript-line-from-selector" attribute="Normal" lineEndContext="#pop#pop">
+				<IncludeRules context="##JavaScript"/>
+			</context>
+			<context name="javascript-line" attribute="Normal" lineEndContext="#pop">
+				<IncludeRules context="##JavaScript"/>
 			</context>
 		</contexts>
 		
