@@ -20,28 +20,45 @@ Changelog:
 		<list name="tags">
 			<item>a</item>
 			<item>applet</item>
+			<item>abbr</item>
+			<item>address</item>
 			<item>area</item>
+			<item>article</item>
+			<item>aside</item>
+			<item>audio</item>
 			<item>b</item>
+			<item>base</item>
+			<item>bdi</item>
+			<item>bdo</item>
 			<item>blockquote</item>
 			<item>body</item>
 			<item>br</item>
 			<item>button</item>
+			<item>canvas</item>
 			<item>caption</item>
 			<item>center</item>
 			<item>cite</item>
 			<item>code</item>
 			<item>col</item>
 			<item>colgroup</item>
+			<item>data</item>
+			<item>datalist</item>
 			<item>dd</item>
 			<item>del</item>
+			<item>details</item>
 			<item>dfn</item>
 			<item>dir</item>
+			<item>dialog</item>
 			<item>div</item>
 			<item>dl</item>
 			<item>dt</item>
 			<item>em</item>
+			<item>embed</item>
 			<item>fieldset</item>
 			<item>font</item>
+			<item>figcaption</item>
+			<item>figure</item>
+			<item>footer</item>
 			<item>form</item>
 			<item>frame</item>
 			<item>frameset</item>
@@ -52,6 +69,8 @@ Changelog:
 			<item>h5</item>
 			<item>h6</item>
 			<item>head</item>
+			<item>header</item>
+			<item>hgroup</item>
 			<item>hr</item>
 			<item>html</item>
 			<item>i</item>
@@ -61,45 +80,68 @@ Changelog:
 			<item>ins</item>
 			<item>isindex</item>
 			<item>kbd</item>
+			<item>keygen</item>
 			<item>label</item>
 			<item>legend</item>
 			<item>li</item>
 			<item>link</item>
+			<item>main</item>
 			<item>map</item>
+			<item>mark</item>
 			<item>menu</item>
+			<item>menuitem</item>
 			<item>meta</item>
 			<item>noframes</item>
+			<item>meter</item>
+			<item>nav</item>
 			<item>noscript</item>
 			<item>object</item>
 			<item>ol</item>
 			<item>optgroup</item>
 			<item>option</item>
+			<item>output</item>
 			<item>p</item>
 			<item>param</item>
 			<item>pre</item>
+			<item>progress</item>
 			<item>q</item>
+			<item>rb</item>
+			<item>rp</item>
+			<item>rt</item>
+			<item>rtc</item>
+			<item>ruby</item>
 			<item>s</item>
 			<item>samp</item>
 			<item>script</item>
+			<item>section</item>
 			<item>select</item>
 			<item>small</item>
+			<item>source</item>
 			<item>span</item>
 			<item>strike</item>
+			<item>strong</item>
 			<item>style</item>
 			<item>sub</item>
+			<item>summary</item>
 			<item>sup</item>
 			<item>table</item>
 			<item>tbody</item>
 			<item>td</item>
+			<item>template</item>
 			<item>textarea</item>
 			<item>tfoot</item>
 			<item>th</item>
 			<item>thead</item>
+			<item>time</item>
 			<item>title</item>
 			<item>tr</item>
 			<item>tt</item>
+			<item>track</item>
 			<item>u</item>
 			<item>ul</item>
+			<item>var</item>
+			<item>video</item>
+			<item>wbr</item>
 		</list>
 		<list name="keywords">
 			<item>each</item>
