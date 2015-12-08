@@ -128,6 +128,7 @@ Changelog:
 		
 		<contexts>
 			<context attribute="Normal" lineEndContext="#stay" name="Normal">
+				<!--
 				<Float attribute="Float" context="#stay"/>
 				<Int attribute="Decimal" context="#stay"/>
 				<HlCOct attribute="Oct" context="#stay"/>
@@ -140,9 +141,19 @@ Changelog:
 				<RangeDetect attribute="Var" char="#" char1="}" context="#stay"/>
 				<RegExpr attribute="Id" String="#\w*" context="#stay"/>
 				<RegExpr attribute="Class" String="\.\w[^\s]*" context="#stay"/>
+				-->
 				<StringDetect String="//" firstNonSpace="true" context="comment"/>
+				<IncludeRules context="selector"/>
 			</context>
 			<context name="comment" attribute="Comment" lineEndContext="#pop"></context>
+			<context name="selector" lineEndContext="#pop">
+				<RegExpr String="[^ \.]" context="#stay"/>
+				<DetectChar attribute="Class" char="." context="#pop!class"/>
+				<DetectChar attribute="Normal" char=" " context="#pop"/>
+			</context>
+			<context name="class" attribute="Class" lineEndContext="#pop">
+				<IncludeRules context="selector"/>
+			</context>
 		</contexts>
 		
 		<itemDatas>
@@ -156,7 +167,7 @@ Changelog:
 			<itemData name="Oct" defStyleNum="dsBaseN" spellChecking="false"/>
 			<itemData name="Hex" defStyleNum="dsBaseN" spellChecking="false"/>
 			<itemData name="Id" defStyleNum="dsKeyword" spellChecking="false"/>
-			<itemData name="Class" defStyleNum="dsKeyword" spellChecking="false"/>
+			<itemData name="Class" defStyleNum="dsFloat" spellChecking="false"/>
 			<itemData name="Var" defStyleNum="dsString" spellChecking="false"/>
 			<itemData name="Comment" defStyleNum="dsComment" spellChecking="true"/>
 		</itemDatas>
