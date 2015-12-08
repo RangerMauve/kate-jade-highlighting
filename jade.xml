@@ -143,11 +143,22 @@ Changelog:
 				<keyword attribute="Tags" context="#stay" firstNonSpace="true" casesensitive="false" String="tags"/>
 				<keyword attribute="Keyword" context="#stay" firstNonSpace="true" String="keywords"/>
 				<StringDetect String="//" firstNonSpace="true" context="comment"/>
+				<LineContinue context="plaintext-block" char="."/>
 				<IncludeRules context="selector"/>
 			</context>
+			
 			<context name="comment" attribute="Comment" lineEndContext="#pop">
 				<IncludeRules context="##Alerts"/>
 			</context>
+			
+			<context name="plaintext-block" attribute="Normal">
+				<RegExpr attribute="Normal" String="^(\s+)(?=\S)" context="plaintext-block-line" column="0"/>
+			</context>
+			<context name="plaintext-block-line" attribute="Normal" lineEndContext="#stay" dynamic="true">
+				<RegExpr attribute="Normal" String="^%1" context="#stay" column="0" dynamic="true"/>
+				<RegExpr attribute="Normal" String="^(.|$)" lookAhead="true" context="#pop#pop" column="0"/>
+			</context>
+			
 			<context name="selector" lineEndContext="#pop">
 				<RegExpr String="[^ \.#]" context="#stay"/>
 				<DetectChar attribute="Class" char="." context="#pop!class"/>
