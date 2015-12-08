@@ -125,34 +125,9 @@ Changelog:
 			<item>append</item>
 			<item>prepend</item>
 		</list>
-		<list name="params">
-			<item>lang</item>
-			<item>href</item>
-			<item>type</item>
-			<item>id</item>
-			<item>class</item>
-			<item>src</item>
-			<item>rel</item>
-			<item>action</item>
-			<item>method</item>
-			<item>value</item>
-			<item>name</item>
-		</list>
-		
+
 		<contexts>
 			<context attribute="Normal" lineEndContext="#stay" name="Normal">
-				<!--
-				<Float attribute="Float" context="#stay"/>
-				<Int attribute="Decimal" context="#stay"/>
-				<HlCOct attribute="Oct" context="#stay"/>
-				<HlCHex attribute="Hex" context="#stay"/>
-				<keyword attribute="Params" context="#stay" casesensitive="true" String="params"/>
-				<RangeDetect attribute="String" char="'" char1="'" context="#pop"/>
-				<RangeDetect attribute="String" char="&quot;" char1="&quot;" context="#pop"/>
-				<RangeDetect attribute="Var" char="#" char1="}" context="#stay"/>
-				<RegExpr attribute="Id" String="#\w*" context="#stay"/>
-				<RegExpr attribute="Class" String="\.\w[^\s]*" context="#stay"/>
-				-->
 				<RegExpr String="^(\s+)(?=\S)" context="#stay" column="0"/><!-- Skip whitespace at start of line, so it doesn't get confused with whitespace used to separate selector from HTML -->
 				<keyword attribute="Tags" context="#stay" firstNonSpace="true" casesensitive="false" String="tags"/>
 				<keyword attribute="Keyword" context="#stay" firstNonSpace="true" String="keywords"/>
@@ -258,15 +233,9 @@ Changelog:
 			<itemData name="Value" defStyleNum="dsString" color="#a00" spellChecking="false" />
 			<itemData name="EntityRef" defStyleNum="dsDecVal" spellChecking="false" />
 			<itemData name="Error" defStyleNum="dsError" spellChecking="false" />
-			<itemData name="Params" defStyleNum="dsOther" spellChecking="false"/>
 			<itemData name="String" defStyleNum="dsString" spellChecking="false"/>
-			<itemData name="Decimal" defStyleNum="dsDecVal" spellChecking="false"/>
-			<itemData name="Float" defStyleNum="dsFloat" spellChecking="false"/>
-			<itemData name="Oct" defStyleNum="dsBaseN" spellChecking="false"/>
-			<itemData name="Hex" defStyleNum="dsBaseN" spellChecking="false"/>
 			<itemData name="Id" defStyleNum="dsFloat" bold="1" spellChecking="false"/>
 			<itemData name="Class" defStyleNum="dsFloat" spellChecking="false"/>
-			<itemData name="Var" defStyleNum="dsString" spellChecking="false"/>
 			<itemData name="Comment" defStyleNum="dsComment" spellChecking="true"/>
 		</itemDatas>
 		
