@@ -12,10 +12,12 @@ Kate Jade syntax highlighting definition
 Changelog:
 
 - Version 1 by RangerMauve (RangerMauve@hotmail.com)
+- Version 2 by Julien Brunet (jules at scarabecus.fr) - added classes, ids, attributes, jade keywords, and more
+- Version 3 by Wolfgang Faust (wolfgangmcq@gmail.com) - Major rewrite; significantly improved highlighting.
 
 -->
 
-<language name="Jade" section="Scripts" version="1.9" kateversion="2.4" extensions="*.jade" author="julien brunet (jules at scarabecus.fr)" license="MIT">
+<language name="Jade" section="Scripts" version="1.9" kateversion="2.4" extensions="*.jade" author="Wolfgang Faust (wolfgangmcq@gmail.com)" license="MIT">
 	<highlighting>
 		<list name="tags">
 			<item>a</item>
