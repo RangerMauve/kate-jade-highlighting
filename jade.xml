@@ -150,6 +150,7 @@ Changelog:
 				<DetectChar char="(" attribute="Normal" context="Attributes"/>
 				<StringDetect String="- " firstNonSpace="true" context="javascript-line"/>
 				<LineContinue context="plaintext-block" char="."/>
+				<LineContinue context="code-block" firstNonSpace="true" char="-"/>
 				<IncludeRules context="selector"/>
 			</context>
 			
@@ -188,6 +189,14 @@ Changelog:
 			<context name="plaintext-block-line" attribute="Normal" lineEndContext="#stay" dynamic="true">
 				<RegExpr attribute="Normal" String="^%1" context="#stay" column="0" dynamic="true"/>
 				<RegExpr attribute="Normal" String="^(.|$)" lookAhead="true" context="#pop#pop" column="0"/>
+			</context>
+			<context name="code-block" attribute="Normal">
+				<RegExpr attribute="Normal" String="^(\s+)(?=\S)" context="code-block-line" column="0"/>
+			</context>
+			<context name="code-block-line" attribute="Normal" lineEndContext="#stay" dynamic="true">
+				<RegExpr attribute="Normal" String="^%1" context="#stay" column="0" dynamic="true"/>
+				<RegExpr attribute="Normal" String="^(.|$)" lookAhead="true" context="#pop#pop" column="0"/>
+				<IncludeRules context="##JavaScript"/>
 			</context>
 			
 			<context name="selector" lineEndContext="#pop">
