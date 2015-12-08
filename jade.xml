@@ -133,8 +133,6 @@ Changelog:
 				<Int attribute="Decimal" context="#stay"/>
 				<HlCOct attribute="Oct" context="#stay"/>
 				<HlCHex attribute="Hex" context="#stay"/>
-				<keyword attribute="Tags" context="#stay" firstNonSpace="true" casesensitive="false" String="tags"/>
-				<keyword attribute="Keyword" context="#stay" firstNonSpace="true" String="keywords"/>
 				<keyword attribute="Params" context="#stay" casesensitive="true" String="params"/>
 				<RangeDetect attribute="String" char="'" char1="'" context="#pop"/>
 				<RangeDetect attribute="String" char="&quot;" char1="&quot;" context="#pop"/>
@@ -142,6 +140,8 @@ Changelog:
 				<RegExpr attribute="Id" String="#\w*" context="#stay"/>
 				<RegExpr attribute="Class" String="\.\w[^\s]*" context="#stay"/>
 				-->
+				<keyword attribute="Tags" context="#stay" firstNonSpace="true" casesensitive="false" String="tags"/>
+				<keyword attribute="Keyword" context="#stay" firstNonSpace="true" String="keywords"/>
 				<StringDetect String="//" firstNonSpace="true" context="comment"/>
 				<IncludeRules context="selector"/>
 			</context>
@@ -162,8 +162,8 @@ Changelog:
 		
 		<itemDatas>
 			<itemData name="Normal" defStyleNum="dsNormal" spellChecking="false"/>
-			<itemData name="Keyword" defStyleNum="dsKeyword" spellChecking="false"/>
-			<itemData name="Tags" defStyleNum="dsOther" spellChecking="false"/>
+			<itemData name="Keyword" defStyleNum="dsKeyword" italic="true" spellChecking="false"/>
+			<itemData name="Tags" defStyleNum="dsKeyword" spellChecking="false"/>
 			<itemData name="Params" defStyleNum="dsOther" spellChecking="false"/>
 			<itemData name="String" defStyleNum="dsNormal" spellChecking="false"/>
 			<itemData name="Decimal" defStyleNum="dsDecVal" spellChecking="false"/>
