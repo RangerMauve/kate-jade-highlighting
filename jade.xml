@@ -250,10 +250,10 @@ Changelog:
 			</context>
 			
 			<context name="selector" lineEndContext="#pop">
-				<RegExpr String="[^\s\.#=!(]" context="#stay"/>
 				<DetectChar attribute="Class" char="." context="#pop!class"/>
 				<DetectChar attribute="Id" char="#" context="#pop!id"/>
 				<DetectChar char="(" attribute="Normal" context="Attributes"/>
+				<RegExpr String=":\s+" context="#pop!selector"/>
 				<RegExpr String="\s" context="#pop!html-line"/>
 				<StringDetect String="= "  context="#pop!javascript-line"/>
 				<StringDetect String="!= " context="#pop!javascript-line"/>
