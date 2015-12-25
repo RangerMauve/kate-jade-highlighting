@@ -193,7 +193,7 @@ Changelog:
 			</context>
 			
 			<context name="each" attribute="Normal" lineEndContext="#pop">
-				<StringDetect String=" in " attribute="Keyword" context="javascript-line-from-selector"/>
+				<StringDetect String=" in " attribute="Keyword" context="#pop!javascript-line"/>
 			</context>
 			
 			<context name="comment" attribute="Comment" lineEndContext="#pop">
@@ -254,9 +254,9 @@ Changelog:
 				<DetectChar attribute="Class" char="." context="#pop!class"/>
 				<DetectChar attribute="Id" char="#" context="#pop!id"/>
 				<DetectChar char="(" attribute="Normal" context="Attributes"/>
-				<RegExpr String="\s" context="html-line-from-selector"/>
-				<StringDetect String="= "  context="javascript-line-from-selector"/>
-				<StringDetect String="!= " context="javascript-line-from-selector"/>
+				<RegExpr String="\s" context="#pop!html-line"/>
+				<StringDetect String="= "  context="#pop!javascript-line"/>
+				<StringDetect String="!= " context="#pop!javascript-line"/>
 			</context>
 			<context name="class" attribute="Class" lineEndContext="#pop">
 				<IncludeRules context="selector"/>
@@ -264,14 +264,8 @@ Changelog:
 			<context name="id" attribute="Id" lineEndContext="#pop">
 				<IncludeRules context="selector"/>
 			</context>
-			<context name="javascript-line-from-selector" attribute="Normal" lineEndContext="#pop#pop">
-				<IncludeRules context="##JavaScript"/>
-			</context>
 			<context name="javascript-line" attribute="Normal" lineEndContext="#pop">
 				<IncludeRules context="##JavaScript"/>
-			</context>
-			<context name="html-line-from-selector" attribute="Normal" lineEndContext="#pop#pop">
-				<IncludeRules context="##HTML"/>
 			</context>
 			<context name="html-line" attribute="Normal" lineEndContext="#pop">
 				<IncludeRules context="##HTML"/>
