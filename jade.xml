@@ -185,7 +185,6 @@ Changelog:
 				<keyword attribute="Keyword" context="each" firstNonSpace="true" String="each-keywords"/>
 				<RegExpr String="//$" context="comment-block" attribute="Comment"/>
 				<StringDetect String="//" firstNonSpace="true" context="comment"/>
-				<DetectChar char="(" attribute="Normal" context="Attributes"/>
 				<DetectChar char="&lt;" context="html-line" lookAhead="true"/>
 				<StringDetect String="- " firstNonSpace="true" context="javascript-line"/>
 				<LineContinue context="plaintext-block" char="."/>
@@ -194,7 +193,7 @@ Changelog:
 			</context>
 			
 			<context name="each" attribute="Normal" lineEndContext="#pop">
-				<StringDetect String=" in " attribute="Keyword" context="javascript-line-from-selector"/>
+				<StringDetect String=" in " attribute="Keyword" context="#pop!javascript-line"/>
 			</context>
 			
 			<context name="comment" attribute="Comment" lineEndContext="#pop">
@@ -251,12 +250,13 @@ Changelog:
 			</context>
 			
 			<context name="selector" lineEndContext="#pop">
-				<RegExpr String="[^\s\.#=!]" context="#stay"/>
 				<DetectChar attribute="Class" char="." context="#pop!class"/>
 				<DetectChar attribute="Id" char="#" context="#pop!id"/>
-				<RegExpr String="\s" context="html-line-from-selector"/>
-				<StringDetect String="= "  context="javascript-line-from-selector"/>
-				<StringDetect String="!= " context="javascript-line-from-selector"/>
+				<DetectChar char="(" attribute="Normal" context="Attributes"/>
+				<RegExpr String=":\s+" context="#pop!selector"/>
+				<RegExpr String="\s" context="#pop!html-line"/>
+				<StringDetect String="= "  context="#pop!javascript-line"/>
+				<StringDetect String="!= " context="#pop!javascript-line"/>
 			</context>
 			<context name="class" attribute="Class" lineEndContext="#pop">
 				<IncludeRules context="selector"/>
@@ -264,14 +264,8 @@ Changelog:
 			<context name="id" attribute="Id" lineEndContext="#pop">
 				<IncludeRules context="selector"/>
 			</context>
-			<context name="javascript-line-from-selector" attribute="Normal" lineEndContext="#pop#pop">
-				<IncludeRules context="##JavaScript"/>
-			</context>
 			<context name="javascript-line" attribute="Normal" lineEndContext="#pop">
 				<IncludeRules context="##JavaScript"/>
-			</context>
-			<context name="html-line-from-selector" attribute="Normal" lineEndContext="#pop#pop">
-				<IncludeRules context="##HTML"/>
 			</context>
 			<context name="html-line" attribute="Normal" lineEndContext="#pop">
 				<IncludeRules context="##HTML"/>
