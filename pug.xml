@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE language SYSTEM "language.dtd"
+[
+<!ENTITY name    "[A-Za-z_:][\w.:_-]*">
+<!ENTITY entref  "&amp;(#[0-9]+|#[xX][0-9A-Fa-f]+|&name;);">
+]>
+
+<!--
+Kate Pug syntax highlighting definition
+Changelog:
+- Version 1 by RangerMauve (RangerMauve@hotmail.com)
+- Version 2 by Julien Brunet (jules at scarabecus.fr) - added classes, ids, attributes, pug keywords, and more
+- Version 3 by Wolfgang Faust (wolfgangmcq@gmail.com) - Major rewrite; significantly improved highlighting.
+- Version 4 by Sébastien Demanou (demsking@gmail.com) - change jade to pug
+-->
+
+<language name="Pug" section="Scripts" version="1.9" kateversion="2.4" extensions="*.pug,*.jade" author="Wolfgang Faust (wolfgangmcq@gmail.com)" license="MIT">
+	<highlighting>
+		<list name="tags">
+			<item>a</item>
+			<item>applet</item>
+			<item>abbr</item>
+			<item>address</item>
+			<item>area</item>
+			<item>article</item>
+			<item>aside</item>
+			<item>audio</item>
+			<item>b</item>
+			<item>base</item>
+			<item>bdi</item>
+			<item>bdo</item>
+			<item>blockquote</item>
+			<item>body</item>
+			<item>br</item>
+			<item>button</item>
+			<item>canvas</item>
+			<item>caption</item>
+			<item>center</item>
+			<item>cite</item>
+			<item>code</item>
+			<item>col</item>
+			<item>colgroup</item>
+			<item>data</item>
+			<item>datalist</item>
+			<item>dd</item>
+			<item>del</item>
+			<item>details</item>
+			<item>dfn</item>
+			<item>dir</item>
+			<item>dialog</item>
+			<item>div</item>
+			<item>dl</item>
+			<item>dt</item>
+			<item>em</item>
+			<item>embed</item>
+			<item>fieldset</item>
+			<item>font</item>
+			<item>figcaption</item>
+			<item>figure</item>
+			<item>footer</item>
+			<item>form</item>
+			<item>frame</item>
+			<item>frameset</item>
+			<item>h1</item>
+			<item>h2</item>
+			<item>h3</item>
+			<item>h4</item>
+			<item>h5</item>
+			<item>h6</item>
+			<item>head</item>
+			<item>header</item>
+			<item>hgroup</item>
+			<item>hr</item>
+			<item>html</item>
+			<item>i</item>
+			<item>iframe</item>
+			<item>img</item>
+			<item>input</item>
+			<item>ins</item>
+			<item>isindex</item>
+			<item>kbd</item>
+			<item>keygen</item>
+			<item>label</item>
+			<item>legend</item>
+			<item>li</item>
+			<item>link</item>
+			<item>main</item>
+			<item>map</item>
+			<item>mark</item>
+			<item>menu</item>
+			<item>menuitem</item>
+			<item>meta</item>
+			<item>noframes</item>
+			<item>meter</item>
+			<item>nav</item>
+			<item>noscript</item>
+			<item>object</item>
+			<item>ol</item>
+			<item>optgroup</item>
+			<item>option</item>
+			<item>output</item>
+			<item>p</item>
+			<item>param</item>
+			<item>pre</item>
+			<item>progress</item>
+			<item>q</item>
+			<item>rb</item>
+			<item>rp</item>
+			<item>rt</item>
+			<item>rtc</item>
+			<item>ruby</item>
+			<item>s</item>
+			<item>samp</item>
+			<item>script</item>
+			<item>section</item>
+			<item>select</item>
+			<item>small</item>
+			<item>source</item>
+			<item>span</item>
+			<item>strike</item>
+			<item>strong</item>
+			<item>style</item>
+			<item>sub</item>
+			<item>summary</item>
+			<item>sup</item>
+			<item>table</item>
+			<item>tbody</item>
+			<item>td</item>
+			<item>template</item>
+			<item>textarea</item>
+			<item>tfoot</item>
+			<item>th</item>
+			<item>thead</item>
+			<item>time</item>
+			<item>title</item>
+			<item>tr</item>
+			<item>tt</item>
+			<item>track</item>
+			<item>u</item>
+			<item>ul</item>
+			<item>var</item>
+			<item>video</item>
+			<item>wbr</item>
+		</list>
+		<list name="keywords">
+			<item>else</item>
+			<item>yield</item>
+			<item>mixin</item>
+		</list>
+		<list name="javascript-keywords">
+			<!-- keywords which are followed by JavaScript code -->
+			<item>if</item>
+			<item>unless</item>
+			<item>case</item>
+			<item>when</item>
+			<item>while</item>
+		</list>
+		<list name="each-keywords">
+			<item>each</item>
+			<item>for</item>
+		</list>
+		<list name="in-keyword">
+			<item>in</item>
+		</list>
+		<list name="string-keywords">
+			<!-- keywords which are followed by plain text strings -->
+			<item>doctype</item>
+			<item>include</item>
+			<item>extends</item>
+			<item>block</item>
+			<item>append</item>
+			<item>prepend</item>
+		</list>
+
+		<contexts>
+			<context attribute="Normal" lineEndContext="#stay" name="Normal">
+				<RegExpr String="^(\s+)(?=\S)" context="#stay" column="0"/><!-- Skip whitespace at start of line, so it doesn't get confused with whitespace used to separate selector from HTML -->
+				<keyword attribute="Tags" context="#stay" firstNonSpace="true" casesensitive="false" String="tags"/>
+				<keyword attribute="Keyword" context="#stay" firstNonSpace="true" String="keywords"/>
+				<keyword attribute="Keyword" context="javascript-line" firstNonSpace="true" String="javascript-keywords"/>
+				<keyword attribute="Keyword" context="string-line" firstNonSpace="true" String="string-keywords"/>
+				<keyword attribute="Keyword" context="each" firstNonSpace="true" String="each-keywords"/>
+				<RegExpr String="//$" context="comment-block" attribute="Comment"/>
+				<StringDetect String="//" firstNonSpace="true" context="comment"/>
+				<DetectChar char="&lt;" context="html-line" lookAhead="true"/>
+				<StringDetect String="- " firstNonSpace="true" context="javascript-line"/>
+				<LineContinue context="plaintext-block" char="."/>
+				<LineContinue context="code-block" firstNonSpace="true" char="-"/>
+				<IncludeRules context="selector"/>
+			</context>
+			
+			<context name="each" attribute="Normal" lineEndContext="#pop">
+				<StringDetect String=" in " attribute="Keyword" context="#pop!javascript-line"/>
+			</context>
+			
+			<context name="comment" attribute="Comment" lineEndContext="#pop">
+				<IncludeRules context="##Alerts"/>
+			</context>
+			
+			<context name="Attributes" attribute="Normal" lineEndContext="#stay">
+				<RegExpr attribute="Attribute" context="#stay" String="&name;" />
+				<DetectChar attribute="Attribute" context="Value" char="=" />
+				<DetectChar context="#stay" char="," />
+				<DetectSpaces />
+				<DetectChar attribute="Normal" context="#pop" char=")" />
+			</context>
+			<context name="Value" attribute="Normal" lineEndContext="#stay" fallthrough="true" fallthroughContext="#pop">
+				<DetectChar attribute="Value" context="Value DQ" char="&quot;" />
+				<DetectChar attribute="Value" context="Value SQ" char="&apos;" />
+				<DetectSpaces />
+			</context>
+			<context name="Value DQ" attribute="Value" lineEndContext="#stay">
+				<DetectChar attribute="Value" context="#pop#pop" char="&quot;" />
+				<IncludeRules context="FindEntityRefs" />
+			</context>
+			<context name="Value SQ" attribute="Value" lineEndContext="#stay">
+				<DetectChar attribute="Value" context="#pop#pop" char="&apos;" />
+				<IncludeRules context="FindEntityRefs" />
+			</context>
+			<context name="FindEntityRefs" attribute="Normal" lineEndContext="#stay">
+				<RegExpr attribute="EntityRef" context="#stay" String="&entref;" />
+				<AnyChar attribute="Error" context="#stay" String="&amp;&lt;" />
+			</context>
+			
+			<context name="plaintext-block" attribute="Normal">
+				<RegExpr attribute="Normal" String="^(\s+)(?=\S)" context="plaintext-block-line" column="0"/>
+			</context>
+			<context name="plaintext-block-line" attribute="Normal" lineEndContext="#stay" dynamic="true">
+				<RegExpr attribute="Normal" String="^%1" context="#stay" column="0" dynamic="true"/>
+				<RegExpr attribute="Normal" String="^(.|$)" lookAhead="true" context="#pop#pop" column="0"/>
+			</context>
+			<context name="code-block" attribute="Normal">
+				<RegExpr attribute="Normal" String="^(\s+)(?=\S)" context="code-block-line" column="0"/>
+			</context>
+			<context name="code-block-line" attribute="Normal" lineEndContext="#stay" dynamic="true">
+				<RegExpr attribute="Normal" String="^%1" context="#stay" column="0" dynamic="true"/>
+				<RegExpr attribute="Normal" String="^(.|$)" lookAhead="true" context="#pop#pop" column="0"/>
+				<IncludeRules context="##JavaScript"/>
+			</context>
+			<context name="comment-block" attribute="Comment">
+				<RegExpr attribute="Normal" String="^(\s+)(?=\S)" context="comment-block-line" column="0"/>
+			</context>
+			<context name="comment-block-line" attribute="Comment" lineEndContext="#stay" dynamic="true">
+				<RegExpr attribute="Normal" String="^%1" context="#stay" column="0" dynamic="true"/>
+				<RegExpr attribute="Normal" String="^(.|$)" lookAhead="true" context="#pop#pop" column="0"/>
+				<IncludeRules context="##Alerts"/>
+			</context>
+			
+			<context name="selector" lineEndContext="#pop">
+				<DetectChar attribute="Class" char="." context="#pop!class"/>
+				<DetectChar attribute="Id" char="#" context="#pop!id"/>
+				<DetectChar char="(" attribute="Normal" context="Attributes"/>
+				<RegExpr String=":\s+" context="#pop!selector"/>
+				<RegExpr String="\s" context="#pop!html-line"/>
+				<StringDetect String="= "  context="#pop!javascript-line"/>
+				<StringDetect String="!= " context="#pop!javascript-line"/>
+			</context>
+			<context name="class" attribute="Class" lineEndContext="#pop">
+				<IncludeRules context="selector"/>
+			</context>
+			<context name="id" attribute="Id" lineEndContext="#pop">
+				<IncludeRules context="selector"/>
+			</context>
+			<context name="javascript-line" attribute="Normal" lineEndContext="#pop">
+				<IncludeRules context="##JavaScript"/>
+			</context>
+			<context name="html-line" attribute="Normal" lineEndContext="#pop">
+				<IncludeRules context="##HTML"/>
+			</context>
+			<context name="string-line" attribute="String" lineEndContext="#pop"></context>
+		</contexts>
+		
+		<itemDatas>
+			<itemData name="Normal" defStyleNum="dsNormal" spellChecking="false"/>
+			<itemData name="Keyword" defStyleNum="dsKeyword" italic="true" spellChecking="false"/>
+			<itemData name="Tags" defStyleNum="dsKeyword" spellChecking="false"/>
+			<itemData name="Attribute" defStyleNum="dsOthers" spellChecking="false" />
+			<itemData name="Value" defStyleNum="dsString" color="#a00" spellChecking="false" />
+			<itemData name="EntityRef" defStyleNum="dsDecVal" spellChecking="false" />
+			<itemData name="Error" defStyleNum="dsError" spellChecking="false" />
+			<itemData name="String" defStyleNum="dsString" spellChecking="false"/>
+			<itemData name="Id" defStyleNum="dsFloat" bold="1" spellChecking="false"/>
+			<itemData name="Class" defStyleNum="dsFloat" spellChecking="false"/>
+			<itemData name="Comment" defStyleNum="dsComment" spellChecking="true"/>
+		</itemDatas>
+		
+		<general>
+			<indentation mode="python"/>
+			<folding indentationsensitive="1"/>
+			<comments>
+				<comment name="singleLine" start="//"/>
+				<comment name="singleLine" start="//-"/>
+			</comments>
+			<keywords casesensitive="1"/>
+		</general>
+	</highlighting>
+</language>
