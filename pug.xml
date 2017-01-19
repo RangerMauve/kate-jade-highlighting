@@ -207,6 +207,7 @@ Changelog:
 			<context name="Value" attribute="Normal" lineEndContext="#stay" fallthrough="true" fallthroughContext="#pop">
 				<DetectChar attribute="Value" context="Value DQ" char="&quot;" />
 				<DetectChar attribute="Value" context="Value SQ" char="&apos;" />
+				<DetectChar attribute="Value" context="Value BQ" char="`" />
 				<DetectSpaces />
 			</context>
 			<context name="Value DQ" attribute="Value" lineEndContext="#stay">
@@ -215,6 +216,10 @@ Changelog:
 			</context>
 			<context name="Value SQ" attribute="Value" lineEndContext="#stay">
 				<DetectChar attribute="Value" context="#pop#pop" char="&apos;" />
+				<IncludeRules context="FindEntityRefs" />
+			</context>
+			<context name="Value BQ" attribute="Value" lineEndContext="#stay">
+				<DetectChar attribute="Value" context="#pop#pop" char="`" />
 				<IncludeRules context="FindEntityRefs" />
 			</context>
 			<context name="FindEntityRefs" attribute="Normal" lineEndContext="#stay">
