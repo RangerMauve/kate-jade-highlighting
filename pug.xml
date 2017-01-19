@@ -14,7 +14,7 @@ Changelog:
 - Version 4 by Sébastien Demanou (demsking@gmail.com) - change jade to pug
 -->
 
-<language name="Pug" section="Scripts" version="1.9" kateversion="2.4" extensions="*.pug,*.jade" author="Wolfgang Faust (wolfgangmcq@gmail.com)" license="MIT">
+<language name="Pug" section="Markup" version="1.9" kateversion="2.4" extensions="*.pug;*.jade" author="Wolfgang Faust (wolfgangmcq@gmail.com)" license="MIT">
 	<highlighting>
 		<list name="tags">
 			<item>a</item>
